@@ -10,7 +10,7 @@
     "testRunner": "apm",
     "config": {
       "darwinTriggerKeys": {
-        "title": "Trigger keys for macOS",
+        "title": "Trigger keys for macOS (In addition to middle mouse click)",
         "description": "macOS: Combination of keys to activate Hyperclick while hovering for text",
         "type": "string",
         "default": "metaKey",
@@ -74,7 +74,7 @@
         ]
       },
       "linuxTriggerKeys": {
-        "title": "Trigger keys for Linux",
+        "title": "Trigger keys for Linux (In addition to middle mouse click)",
         "description": "Linux: Combination of keys to activate Hyperclick while hovering for text",
         "type": "string",
         "default": "ctrlKey",
@@ -138,7 +138,7 @@
         ]
       },
       "win32TriggerKeys": {
-        "title": "Trigger keys for Windows",
+        "title": "Trigger keys for Windows (In addition to middle mouse click)",
         "description": "Windows: Combination of keys to activate Hyperclick while hovering for text",
         "type": "string",
         "default": "ctrlKey",
