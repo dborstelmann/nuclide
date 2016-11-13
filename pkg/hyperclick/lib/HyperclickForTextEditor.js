@@ -181,6 +181,13 @@ export default class HyperclickForTextEditor {
 
   _onMouseDown(event: Event): void {
     const mouseEvent: MouseEvent = (event: any);
+
+    if (event.which === 2) {
+      this._setSuggestionForLastMouseEvent(true);
+      event.stopPropagation();
+      return;
+    }
+
     if (!this._isHyperclickEvent(mouseEvent) || !this._isMouseAtLastSuggestion()) {
       return;
     }
@@ -216,7 +223,7 @@ export default class HyperclickForTextEditor {
     return this._lastSuggestionAtMousePromise || Promise.resolve(null);
   }
 
-  async _setSuggestionForLastMouseEvent(): Promise<void> {
+  async _setSuggestionForLastMouseEvent(isMiddle): Promise<void> {
     if (!this._lastMouseEvent) {
       return;
     }
@@ -265,6 +272,10 @@ export default class HyperclickForTextEditor {
       logger.error('Error getting Hyperclick suggestion:', e);
     } finally {
       this._doneLoading();
+      if (isMiddle) {
+        this._confirmSuggestion(this._lastSuggestionAtMouse);
+        this._clearSuggestion();
+      }
     }
   }
 
